@@ -1,5 +1,7 @@
-import { motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 import { Reveal } from "./ui/Reveal";
+import narrativeMist from "../assets/narrative-mist.webp";
 
 const PROBLEMS = [
   "Processos excessivamente manuais e baixa produtividade",
@@ -26,9 +28,28 @@ function CheckIcon() {
 
 export function Problems() {
   const reduceMotion = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], [48, -48]);
 
   return (
-    <section className="section-large padding-global">
+    <section
+      ref={sectionRef}
+      className="problems-section section-large padding-global"
+    >
+      {/* Reuso da névoa da narrativa, espelhada, para dar continuidade visual. */}
+      <motion.img
+        src={narrativeMist}
+        alt=""
+        aria-hidden="true"
+        className="section-art section-art--bleed problems__bg"
+        loading="lazy"
+        decoding="async"
+        style={reduceMotion ? { scaleX: -1 } : { y: bgY, scaleX: -1 }}
+      />
       <div className="container-large">
         <header className="problems__header">
           <Reveal>

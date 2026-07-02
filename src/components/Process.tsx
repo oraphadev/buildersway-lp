@@ -7,6 +7,7 @@ import {
 } from "motion/react";
 import { useRef } from "react";
 import { Reveal } from "./ui/Reveal";
+import processFlow from "../assets/process-flow.webp";
 
 const STEPS = [
   {
@@ -69,14 +70,38 @@ function ProcessCard({ step, index, progress }: ProcessCardProps) {
 }
 
 export function Process() {
+  const reduceMotion = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
   const { scrollYProgress } = useScroll({
     target: listRef,
     offset: ["start end", "end start"],
   });
 
+  const { scrollYProgress: bgProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const bgY = useTransform(bgProgress, [0, 1], [-64, 64]);
+  const bgOpacity = useTransform(
+    bgProgress,
+    [0, 0.2, 0.8, 1],
+    [0, 0.38, 0.38, 0.1],
+  );
+
   return (
-    <section id="como-atuamos" className="process section-large">
+    <section ref={sectionRef} id="como-atuamos" className="process section-large">
+      <motion.img
+        src={processFlow}
+        alt=""
+        aria-hidden="true"
+        className="section-art section-art--bleed process__bg"
+        loading="lazy"
+        decoding="async"
+        style={
+          reduceMotion ? { opacity: 0.3 } : { y: bgY, opacity: bgOpacity }
+        }
+      />
       <div className="padding-global">
         <div className="container-large">
           <header className="process__header">

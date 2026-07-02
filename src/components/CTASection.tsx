@@ -2,6 +2,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from "motion/react"
 import { useRef } from "react";
 import { Button } from "./ui/Button";
 import { Reveal } from "./ui/Reveal";
+import ctaAurora from "../assets/cta-aurora.webp";
 
 export function CTASection() {
   const reduceMotion = useReducedMotion();
@@ -14,6 +15,8 @@ export function CTASection() {
 
   const glowY = useTransform(scrollYProgress, [0, 1], [120, 0]);
   const glowOpacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const auroraY = useTransform(scrollYProgress, [0, 1], [-72, 0]);
+  const auroraOpacity = useTransform(scrollYProgress, [0, 1], [0, 0.65]);
 
   return (
     <section
@@ -21,6 +24,19 @@ export function CTASection() {
       id="contato"
       className="cta section-large padding-global"
     >
+      <motion.img
+        src={ctaAurora}
+        alt=""
+        aria-hidden="true"
+        className="section-art cta__aurora"
+        loading="lazy"
+        decoding="async"
+        style={
+          reduceMotion
+            ? { opacity: 0.55 }
+            : { y: auroraY, opacity: auroraOpacity }
+        }
+      />
       <motion.div
         className="cta__glow"
         aria-hidden="true"

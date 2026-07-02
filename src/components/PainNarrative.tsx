@@ -8,6 +8,7 @@ import {
   type MotionValue,
 } from "motion/react";
 import { useRef, type ReactNode } from "react";
+import narrativeMist from "../assets/narrative-mist.webp";
 
 const LINES: ReactNode[] = [
   <>O mercado evolui em velocidade crescente. Novas tecnologias surgem constantemente e processos tornam-se obsoletos.</>,
@@ -96,6 +97,15 @@ export function PainNarrative() {
     restDelta: 0.001,
   });
 
+  // Névoa ambiente: deriva lentamente na direção oposta ao scroll.
+  const mistOpacity = useTransform(
+    smoothProgress,
+    [0, 0.12, 0.85, 1],
+    [0, 0.5, 0.5, 0],
+  );
+  const mistY = useTransform(smoothProgress, [0, 1], [-48, 48]);
+  const mistScale = useTransform(smoothProgress, [0, 1], [1.08, 1.18]);
+
   if (reduceMotion) {
     return (
       <section className="section-large padding-global">
@@ -111,6 +121,15 @@ export function PainNarrative() {
   return (
     <section ref={sectionRef} className="narrative-sticky">
       <div className="narrative-sticky__viewport padding-global">
+        <motion.img
+          src={narrativeMist}
+          alt=""
+          aria-hidden="true"
+          className="section-art narrative-sticky__bg"
+          loading="lazy"
+          decoding="async"
+          style={{ opacity: mistOpacity, y: mistY, scale: mistScale }}
+        />
         <div className="narrative-sticky__stage container-medium">
           {LINES.map((line, index) => (
             <StoryLine
