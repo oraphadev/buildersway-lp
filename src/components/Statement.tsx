@@ -1,0 +1,35 @@
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
+
+export function Statement() {
+  const reduceMotion = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "center center"],
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.35, 1], [0, 0.5, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], [64, 0]);
+
+  return (
+    <section ref={sectionRef} className="section-large padding-global">
+      <motion.div
+        className="statement container-medium"
+        style={reduceMotion ? undefined : { scale, opacity, y }}
+      >
+        <p className="eyebrow">Nossa filosofia</p>
+        <h2 className="heading-h2">
+          Gente para estratégia.{" "}
+          <span className="text-gradient">IA para execução.</span>
+        </h2>
+        <p className="text-medium text-muted">
+          Empresas não contratam Inteligência Artificial. Empresas contratam
+          evolução — a IA apenas a tornou mais rápida.
+        </p>
+      </motion.div>
+    </section>
+  );
+}
