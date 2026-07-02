@@ -36,7 +36,10 @@ export function Nav() {
             </li>
           </ul>
           <Button href="#contato" small withArrow>
-            fale conosco
+            <span className="nav__cta-label nav__cta-label--full">
+              fale conosco
+            </span>
+            <span className="nav__cta-label nav__cta-label--short">contato</span>
           </Button>
         </nav>
       </div>

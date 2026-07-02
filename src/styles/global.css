@@ -376,6 +376,20 @@ h6 {
   }
 }
 
+.nav__cta-label--full {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .nav__cta-label--full {
+    display: inline;
+  }
+
+  .nav__cta-label--short {
+    display: none;
+  }
+}
+
 /* ============================================================
    Hero
    ============================================================ */
@@ -559,7 +573,8 @@ h6 {
   border-radius: var(--radius-card);
   background: var(--gradient-card);
   height: 100%;
-  transition: var(--transition-fast);
+  /* border-color apenas: transition "all" briga com o transform/opacity animados pelo Motion */
+  transition: border-color 0.2s ease-in-out;
 }
 
 .process__card:hover {
