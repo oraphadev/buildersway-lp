@@ -328,8 +328,9 @@ h6 {
   inset: 0 0 auto;
   z-index: 100;
   background: color-mix(in srgb, var(--color-bg) 55%, transparent);
+  /* Não adicionar -webkit- manualmente: o Lightning CSS colapsa o par
+     (última declaração vence) e o prefixo é gerado no build via cssTarget. */
   backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid
     color-mix(in srgb, var(--color-ivory) 8%, transparent);
 }
@@ -345,7 +346,7 @@ h6 {
   display: flex;
   align-items: center;
   gap: 0.625rem;
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: 1.35rem;
   font-weight: 400;
   letter-spacing: 0.02em;
