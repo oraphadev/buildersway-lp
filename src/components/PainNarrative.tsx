@@ -3,6 +3,7 @@ import {
   transform,
   useReducedMotion,
   useScroll,
+  useSpring,
   useTransform,
   type MotionValue,
 } from "motion/react";
@@ -57,11 +58,21 @@ function StoryLine({ progress, index, total, children }: StoryLineProps) {
     isFirst ? [0, 0, -56] : isLast ? [56, 0] : [56, 0, 0, -56],
   );
 
+  const mapBlur = transform(
+    isFirst
+      ? [start, fadeOutStart, end]
+      : isLast
+        ? [start, fadeInEnd]
+        : [start, fadeInEnd, fadeOutStart, end],
+    isFirst ? [0, 0, 10] : isLast ? [10, 0] : [10, 0, 0, 10],
+  );
+
   const opacity = useTransform(progress, (value) => mapOpacity(value));
   const y = useTransform(progress, (value) => mapY(value));
+  const filter = useTransform(progress, (value) => `blur(${mapBlur(value)}px)`);
 
   return (
-    <motion.p className="narrative-sticky__line" style={{ opacity, y }}>
+    <motion.p className="narrative-sticky__line" style={{ opacity, y, filter }}>
       {children}
     </motion.p>
   );
@@ -74,6 +85,15 @@ export function PainNarrative() {
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end end"],
+  });
+
+  // Suaviza os ticks discretos do wheel/trackpad; sem isso os transforms
+  // saltam de um evento de scroll para o outro e a seção parece travada.
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 26,
+    mass: 0.4,
+    restDelta: 0.001,
   });
 
   if (reduceMotion) {
@@ -95,7 +115,7 @@ export function PainNarrative() {
           {LINES.map((line, index) => (
             <StoryLine
               key={index}
-              progress={scrollYProgress}
+              progress={smoothProgress}
               index={index}
               total={LINES.length}
             >
