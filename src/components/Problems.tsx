@@ -64,7 +64,7 @@ export function Problems() {
           <Reveal delay={0.2}>
             <p className="text-medium text-muted">
               Estes são sintomas frequentes. Nosso trabalho é compreender as
-              causas — e só então definir a solução.
+              causas - e só então definir a solução.
             </p>
           </Reveal>
         </header>

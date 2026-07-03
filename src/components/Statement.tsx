@@ -57,7 +57,7 @@ export function Statement() {
         </h2>
         <p className="text-medium text-muted">
           Empresas não contratam Inteligência Artificial. Empresas contratam
-          evolução — a IA apenas a tornou mais rápida.
+          evolução - a IA apenas a tornou mais rápida.
         </p>
       </motion.div>
     </section>

@@ -51,7 +51,7 @@ export function CTASection() {
         </Reveal>
         <Reveal delay={0.1}>
           <p className="text-medium text-muted">
-            Toda relação começa pelo problema — nunca pela tecnologia. Conte-nos
+            Toda relação começa pelo problema - nunca pela tecnologia. Conte-nos
             o contexto do seu negócio e descubra o que faz sentido construir.
           </p>
         </Reveal>

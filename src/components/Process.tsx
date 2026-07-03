@@ -23,7 +23,7 @@ const STEPS = [
   {
     title: "Construir",
     description:
-      "Projetamos e implementamos soluções personalizadas. Toda tecnologia utilizada possui justificativa explícita — nunca tendências.",
+      "Projetamos e implementamos soluções personalizadas. Toda tecnologia utilizada possui justificativa explícita - nunca tendências.",
   },
   {
     title: "Evoluir",
@@ -117,7 +117,7 @@ export function Process() {
             <Reveal delay={0.2}>
               <p className="text-medium text-muted">
                 Todo relacionamento começa pela compreensão do problema. A
-                implementação é consequência — nunca o ponto de partida.
+                implementação é consequência - nunca o ponto de partida.
               </p>
             </Reveal>
           </header>

@@ -9,7 +9,7 @@ const PRINCIPLES = [
   {
     title: "Compreender antes de construir",
     description:
-      "Construir rapidamente a solução errada desperdiça tempo, dinheiro e confiança. Diagnóstico não é burocracia — é engenharia.",
+      "Construir rapidamente a solução errada desperdiça tempo, dinheiro e confiança. Diagnóstico não é burocracia - é engenharia.",
   },
   {
     title: "Resultados acima de tudo",
@@ -29,7 +29,7 @@ const PRINCIPLES = [
   {
     title: "Honestidade constrói parcerias",
     description:
-      "Se uma tecnologia não for a melhor solução para você, não será recomendada — mesmo que isso reduza o escopo comercial.",
+      "Se uma tecnologia não for a melhor solução para você, não será recomendada - mesmo que isso reduza o escopo comercial.",
   },
 ];
 

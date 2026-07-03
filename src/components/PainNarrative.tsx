@@ -13,7 +13,7 @@ import narrativeMist from "../assets/narrative-mist.webp";
 const LINES: ReactNode[] = [
   <>O mercado evolui em velocidade crescente. Novas tecnologias surgem constantemente e processos tornam-se obsoletos.</>,
   <>A maioria das empresas sabe que precisa evoluir. <strong>Poucas sabem exatamente como.</strong></>,
-  <>Existe excesso de informação técnica — e escassez de direcionamento estratégico.</>,
+  <>Existe excesso de informação técnica - e escassez de direcionamento estratégico.</>,
   <>
     <span className="narrative__closing">
       A BuildersWay existe para preencher essa lacuna.

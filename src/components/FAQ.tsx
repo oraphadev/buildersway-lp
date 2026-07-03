@@ -6,7 +6,7 @@ const ITEMS = [
   {
     question: "O que a BuildersWay faz?",
     answer:
-      "Ajudamos empresas a evoluírem através da IA: compreensão profunda do negócio, diagnóstico estratégico, definição de prioridades e implementação de soluções personalizadas. Não vendemos tecnologia — resolvemos problemas.",
+      "Ajudamos empresas a evoluírem através da IA: compreensão profunda do negócio, diagnóstico estratégico, definição de prioridades e implementação de soluções personalizadas. Não vendemos tecnologia - resolvemos problemas.",
   },
   {
     question: "A BuildersWay vende projetos de IA?",
@@ -26,7 +26,7 @@ const ITEMS = [
   {
     question: "A BuildersWay realiza apenas consultoria?",
     answer:
-      "Não. Sempre que fizer sentido, também executamos a implementação — preferimos acompanhar toda a jornada, da estratégia à entrega.",
+      "Não. Sempre que fizer sentido, também executamos a implementação - preferimos acompanhar toda a jornada, da estratégia à entrega.",
   },
   {
     question: "A BuildersWay atende apenas empresas de tecnologia?",
