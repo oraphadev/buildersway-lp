@@ -1,3 +1,5 @@
+import { Logomark } from "./Logomark";
+
 export function Footer() {
   return (
     <footer className="footer padding-global">
@@ -5,10 +7,7 @@ export function Footer() {
         <div className="footer__grid">
           <div className="footer__brand">
             <a href="#" className="nav__logo">
-              <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true">
-                <path d="M6 24V8l10 8-10 8Z" fill="#0CC481" />
-                <path d="M16 24V8l10 8-10 8Z" fill="#EDECE4" opacity="0.85" />
-              </svg>
+              <Logomark size={22} />
               BuildersWay
             </a>
             <p className="footer__tagline">
